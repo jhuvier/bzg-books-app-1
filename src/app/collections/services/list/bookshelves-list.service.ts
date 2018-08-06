@@ -4,19 +4,20 @@ import { Observable, of } from 'rxjs';
 import { catchError } from "rxjs/operators";
 import { MessagesService } from "../../../alerts/services/messages.service";
 
+
 @Injectable({
   providedIn: 'root'
 })
-export class BookListService {
+export class BookShelvesListService {
 
-  baseURL = 'https://www.googleapis.com/books/v1/volumes';
+  baseURL = 'https://www.googleapis.com/books/v1/';
 
   constructor(private http: HttpClient, private alertService: MessagesService) { }
 
-  getBookList(id?:string):Observable<any> {
-    let url = this.baseURL + '?q=javascript&startIndex=0&maxResults=10';
+  getBookShelvesList(id?:string):Observable<any> {
+    let url = this.baseURL + 'users/109173561887505985909/bookshelves';
     if(id){
-      url = this.baseURL + `/${id}`;
+      url = url + `/${id}`;
     }
     return this.http.get(url)
     .pipe(

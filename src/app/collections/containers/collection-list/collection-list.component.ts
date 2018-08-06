@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookShelvesListService } from "../../services/list/bookshelves-list.service";
 
 @Component({
   selector: 'app-collection-list',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CollectionListComponent implements OnInit {
 
-  constructor() { }
+  bookShelvesList: any[];
 
-  ngOnInit() {
+  constructor(private bookShelvesListService: BookShelvesListService) { 
+    this.bookShelvesList = [];
   }
 
+  ngOnInit() {
+    this.bookShelvesListService.getBookShelvesList()
+    .subscribe(
+      (bookShelves:any) => {
+        if(bookShelves){
+          this.bookShelvesList = bookShelves.items;
+        }
+      }
+    );
+  }
 }

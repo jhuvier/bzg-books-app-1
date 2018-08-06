@@ -24,11 +24,9 @@ export class BookDetailComponent implements OnInit {
       this.booksService.getBookList(id)
       .subscribe(
         (book: any) => {
-          this.book = book[0];
+          this.book = book;
         }
       )
     });
-
   }
-
 }

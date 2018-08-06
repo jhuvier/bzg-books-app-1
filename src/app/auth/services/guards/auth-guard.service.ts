@@ -11,10 +11,10 @@ export class AuthGuardService implements CanActivate {
   constructor(private router: Router) { }
 
   canActivate() : Observable<boolean> {
-    if(!localStorage.getItem('bzgBooksAppToken')){
-      this.router.navigate(['/login']);
-      return of(false);
-    }
+    // if(!localStorage.getItem('bzgBooksAppToken')){
+    //   this.router.navigate(['/login']);
+    //   return of(false);
+    // }
     return of(true);
   }
   

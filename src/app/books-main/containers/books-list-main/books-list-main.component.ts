@@ -19,10 +19,9 @@ export class BooksListMainComponent implements OnInit {
     .subscribe(
       (books:any) => {
         if(books){
-          this.booksList = books;
+          this.booksList = books.items;
         }        
       }
     );
   }
-
 }

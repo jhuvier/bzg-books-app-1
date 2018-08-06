@@ -24,9 +24,9 @@ import { routes  } from "./routes";
     RouterModule.forRoot(routes),
     HttpModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      BooksDBService, {dataEncapsulation: false, delay: 3000}
-    ),
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   BooksDBService, {dataEncapsulation: false, delay: 1000}
+    // ),
     AuthModule
   ],
   providers: [],
